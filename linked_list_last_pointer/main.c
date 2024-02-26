@@ -88,9 +88,57 @@ void test_removeAt() {
     list_destroy(list);
 }
 
+void test_insertLast() {
+    LinkedList* list = list_create();
+
+    list_insertLast(list, 10);
+    list_insertLast(list, 20);
+    list_insertLast(list, 30);
+
+    list_print(list);
+
+    list_destroy(list);
+}
+
+void test_insertFirst() {
+    LinkedList* list = list_create();
+
+    list_insertFirst(list, 10);
+    list_insertFirst(list, 20);
+    list_insertFirst(list, 30);
+
+    list_print(list);
+
+    list_destroy(list);
+}
+
+void test_insertExtremities() {
+    LinkedList* list = list_create();
+
+    list_insertFirst(list, 10);
+    list_insertFirst(list, 20);
+    list_insertFirst(list, 30);
+    list_insertLast(list, 10);
+    list_insertLast(list, 20);
+    list_insertLast(list, 30);
+
+    list_print(list);
+
+    list_destroy(list);
+}
+
 int main() {
-    // test_removeFirst();
+    test_insert();
+    printf("\n");
+    test_removeFirst();
+    printf("\n");
     test_removeAt();
+    printf("\n");
+    test_insertLast();
+    printf("\n");
+    test_insertFirst();
+    printf("\n");
+    test_insertExtremities();
 
     return 0;
 }
