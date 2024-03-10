@@ -143,3 +143,22 @@ void list_printElements(LinkedList* l1, LinkedList* l2) {
     }
     printf("\n");
 }
+
+bool list_equals(LinkedList* l1, LinkedList* l2){
+    Node* cur = l1->head;
+    Node* cur2 = l2->head;
+    if (cur == NULL || cur2 == NULL) {
+        return false;
+    }
+    while (cur != NULL && cur2 != NULL) {
+        if(cur->element != cur2->element){
+            return false;
+        }
+        cur2 = cur2->next;
+        cur = cur->next;
+    }
+    return true;
+}
+
+
+

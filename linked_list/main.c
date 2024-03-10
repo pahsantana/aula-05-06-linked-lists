@@ -108,10 +108,34 @@ void test_printElements() {
     list_destroy(list2);
 }
 
+
+void test_equals() {
+    LinkedList* list1 = list_create();
+    LinkedList* list2 = list_create();
+    list_insertFirst(list1, 5);
+    list_insertFirst(list1, 4);
+    list_insertFirst(list1, 3);
+    list_insertFirst(list1, 2);
+    list_insertFirst(list1, 1);
+
+    list_insertFirst(list2, 6);
+    list_insertFirst(list2, 4);
+    list_insertFirst(list2, 3);
+    list_insertFirst(list2, 2);
+    list_insertFirst(list2, 1);
+
+    bool res = list_equals(list1,list2);
+    printf("%s\n", (res) ? "true" : "false");
+
+    list_destroy(list1);
+    list_destroy(list2);
+}
+
 int main() {
     // test_removeFirst();
     // test_removeAt();
-    test_printElements();
+    // test_printElements();
+    test_equals();
 
     return 0;
 }
