@@ -131,11 +131,32 @@ void test_equals() {
     list_destroy(list2);
 }
 
+
+void test_sorted() {
+    LinkedList* list = list_create();
+    list_insertFirst(list, 1);
+    list_insertFirst(list, 2);
+    list_insertFirst(list, 3);
+    list_insertFirst(list, 4);
+    list_insertFirst(list, 5);
+    // list_insertFirst(list, 5);
+    // list_insertFirst(list, 4);
+    // list_insertFirst(list, 3);
+    // list_insertFirst(list, 2);
+    // list_insertFirst(list, 1);
+    list_isSorted(list);
+    // bool res = list_isSorted(list);
+    // printf("%d\n", res);
+
+    list_destroy(list);
+}
+
 int main() {
     // test_removeFirst();
     // test_removeAt();
     // test_printElements();
-    test_equals();
+    // test_equals();
+    test_sorted();
 
     return 0;
 }

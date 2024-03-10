@@ -16,5 +16,7 @@ bool list_removeAt(LinkedList* list, int pos);
 void list_print(LinkedList* list);
 void list_printElements(LinkedList* l1, LinkedList* l2);
 bool list_equals(LinkedList* l1, LinkedList* l2);
+void list_isSorted(LinkedList* l);
+
 
 #endif

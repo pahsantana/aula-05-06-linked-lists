@@ -160,5 +160,35 @@ bool list_equals(LinkedList* l1, LinkedList* l2){
     return true;
 }
 
+int list_isSorted(LinkedList* l) {
+    Node* cur = l->head;
+
+    if (cur == NULL || cur->next == NULL) {
+        return 1; 
+    }
+
+    int ascending = 1; 
+    int descending = 1; 
+    while (cur->next != NULL) {
+        if (cur->element > cur->next->element) {
+            ascending = 0;
+        } else if (cur->element < cur->next->element) {
+            descending = 0; 
+        }
+        if (!ascending && !descending) {
+            return 0; 
+        }
+        
+        cur = cur->next;
+    }
+
+    if (ascending) {
+        return 1;
+    } else if (descending) {
+        return 2;
+    } else {
+        return 0;
+    }
+}
 
 
