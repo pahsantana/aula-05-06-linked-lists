@@ -88,9 +88,30 @@ void test_removeAt() {
     list_destroy(list);
 }
 
+
+void test_printElements() {
+    LinkedList* list1 = list_create();
+    LinkedList* list2 = list_create();
+    list_insertFirst(list1, 5);
+    list_insertFirst(list1, 80);
+    list_insertFirst(list1, 10);
+    list_insertFirst(list1, 40);
+    list_insertFirst(list1, 30);
+
+    list_insertFirst(list2, 4);
+    list_insertFirst(list2, 3);
+    list_insertFirst(list2, 1);
+
+    list_printElements(list1,list2);
+
+    list_destroy(list1);
+    list_destroy(list2);
+}
+
 int main() {
     // test_removeFirst();
-    test_removeAt();
+    // test_removeAt();
+    test_printElements();
 
     return 0;
 }

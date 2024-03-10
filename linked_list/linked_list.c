@@ -124,3 +124,22 @@ bool list_removeAt(LinkedList* list, int pos) {
 
     return true;    
 }
+
+void list_printElements(LinkedList* l1, LinkedList* l2) {
+    Node* cur = l1->head;
+    int pos = 0;
+    while (cur != NULL) {
+        Node* cur2 = l2->head;
+        while (cur2 != NULL) {
+            if (cur2->element == pos) {
+                element_print(cur->element);
+                printf(" ");
+                break; 
+            }
+            cur2 = cur2->next;
+        }
+        pos++;
+        cur = cur->next;
+    }
+    printf("\n");
+}
