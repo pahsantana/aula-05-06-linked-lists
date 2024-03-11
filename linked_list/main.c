@@ -164,6 +164,25 @@ void test_reversed(){
     list_destroy(list);
 }
 
+void test_removeDuplicates(){
+    LinkedList* list = list_create();
+    list_insertFirst(list, 3);
+    list_insertFirst(list, 5);
+    list_insertFirst(list, 4);
+    list_insertFirst(list, 2);
+    list_insertFirst(list, 3);
+    list_insertFirst(list, 2);
+    list_insertFirst(list, 1);
+
+    list_print(list);
+
+    list_removeDuplicates(list);
+
+    list_print(list);
+
+    list_destroy(list);
+}
+
 
 int main() {
     // test_removeFirst();
@@ -171,7 +190,7 @@ int main() {
     // test_printElements();
     // test_equals();
     // test_sorted();
-    test_reversed();
+    test_removeDuplicates();
 
     return 0;
 }

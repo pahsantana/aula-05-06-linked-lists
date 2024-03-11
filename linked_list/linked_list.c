@@ -241,3 +241,30 @@ LinkedList* reverse(LinkedList* list) {
     }
     return reversedList;
 }
+
+void list_removeDuplicates(LinkedList* list) {
+    if (list == NULL || list->head == NULL) {
+        return; 
+    }
+
+    Node* current = l->head;
+    Node* runner;
+    Node* prev;
+
+    while (current != NULL) {
+        prev = current;
+        runner = current->next;
+
+        while (runner != NULL) {
+            if (runner->element == current->element) {
+                prev->next = runner->next;
+                free(runner);
+                runner = prev->next; 
+            } else {
+                prev = runner;
+                runner = runner->next;
+            }
+        }
+        current = current->next; 
+    }
+}
