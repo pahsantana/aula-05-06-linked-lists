@@ -191,18 +191,53 @@ int list_isSorted(LinkedList* l) {
     }
 }
 
-void list_printReverseHelper(Node* cur) {
-    if (cur == NULL) {
-        return; // Base case: reached the end of the list
-    }
-    list_printReverseHelper(cur->next);
-    // Print the element of the current node after all subsequent nodes have been printed
-    element_print(cur->element);
-    printf(" ");
-}
+// void list_printReverseHelper(Node* cur) {
+//     if (cur == NULL) {
+//         return; // Base case: reached the end of the list
+//     }
+//     list_printReverseHelper(cur->next);
+//     // Print the element of the current node after all subsequent nodes have been printed
+//     element_print(cur->element);
+//     printf(" ");
+// }
+
+// void list_printReverse(LinkedList* l) {
+//     list_printReverseHelper(l->head);
+//     printf("\n");
+// }
 
 void list_printReverse(LinkedList* l) {
-    list_printReverseHelper(l->head);
+    if (l->head == NULL) {
+        return; 
+    }
+
+    Node* stack = NULL;
+    Node* cur = l->head;
+
+    while (cur != NULL) {
+        Node* temp = cur;
+        cur = cur->next;
+        temp->next = stack;
+        stack = temp;
+    }
+
+    while (stack != NULL) {
+        element_print(stack->element);
+        stack = stack->next;
+        if (stack != NULL) {
+            printf(" -> ");
+        }
+    }
     printf("\n");
 }
 
+LinkedList* reverse(LinkedList* list) {
+    LinkedList* reversedList = list_create();
+    Node* current = list->head;
+    while (current != NULL) {
+        Element element = current->element;
+        list_insertFirst(reversedList, element); 
+        current = current->next;
+    }
+    return reversedList;
+}
