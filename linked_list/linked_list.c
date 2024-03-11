@@ -191,4 +191,18 @@ int list_isSorted(LinkedList* l) {
     }
 }
 
+void list_printReverseHelper(Node* cur) {
+    if (cur == NULL) {
+        return; // Base case: reached the end of the list
+    }
+    list_printReverseHelper(cur->next);
+    // Print the element of the current node after all subsequent nodes have been printed
+    element_print(cur->element);
+    printf(" ");
+}
+
+void list_printReverse(LinkedList* l) {
+    list_printReverseHelper(l->head);
+    printf("\n");
+}
 
